@@ -10,7 +10,7 @@ return {
         "folke/tokyonight.nvim",
         lazy=false,
         config=function()
-            ColorPencils("tokyonight-moon")
+            -- ColorPencils("tokyonight-moon")
         end,
     },
     {
@@ -24,7 +24,7 @@ return {
         "ellisonleao/gruvbox.nvim" ,
         lazy=false,
         config=function()
-            -- ColorPencils("gruvbox")
+            ColorPencils("gruvbox")
         end,
     },
     {
