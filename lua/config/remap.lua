@@ -30,5 +30,10 @@ vim.opt.colorcolumn = "80"
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 vim.g.netrw_banner = 0
--- vim.g.netrw_liststyle = 3
+vim.g.netrw_liststyle = 3
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = {"*.md", "*.txt"},
+    command = "setlocal textwidth=80",
+})
 
