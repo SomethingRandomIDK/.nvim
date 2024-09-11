@@ -18,6 +18,8 @@ local viewFile = function()
         local fileName = vim.fn.expand('%:t')
         local openCommand = "!firefox " .. string.sub(fileName, 1, -4) .. "pdf"
         vim.cmd(openCommand)
+    else
+        print('Not Valid File to View')
     end
 end
 
@@ -56,17 +58,17 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
     command = "setlocal textwidth=80",
 })
 
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-    pattern = {".md"},
-    callback = function()
-        vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "filetype", "markdown")
-    end
-})
-
-vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-    pattern = {".tex"},
-    callback = function()
-        vim.cmd("syntax on")
-        vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "filetype", "latex")
-    end
-})
+-- vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+--     pattern = {".md"},
+--     callback = function()
+--         vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "filetype", "markdown")
+--     end
+-- })
+--
+-- vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+--     pattern = {".tex"},
+--     callback = function()
+--         vim.cmd("syntax on")
+--         vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "filetype", "latex")
+--     end
+-- })
