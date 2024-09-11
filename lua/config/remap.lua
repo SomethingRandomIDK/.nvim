@@ -6,7 +6,22 @@ vim.keymap.set("v", "<C-c>", "<Esc>")
 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
 vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
 vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>') 
-vim.keymap.set("n", "<leader>v", ":!inlyne %<cr>")
+
+local viewFile = function()
+    -- Uses inlyne as a markdown viewer
+    if vim.bo.filetype == 'markdown' then
+        vim.cmd("!inlyne %")
+
+    -- Compiles the tex file and then opens it in firefox
+    elseif vim.bo.filetype == 'tex' then
+        vim.cmd('!pdflatex %:.')
+        local fileName = vim.fn.expand('%:t')
+        local openCommand = "!firefox " .. string.sub(fileName, 1, -4) .. "pdf"
+        vim.cmd(openCommand)
+    end
+end
+
+vim.keymap.set("n", "<leader>v", viewFile)
 
 vim.opt.guicursor = ""
 
@@ -37,7 +52,21 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
-    pattern = {"*.md", "*.txt"},
+    pattern = {"*.md", "*.txt", "*.tex"},
     command = "setlocal textwidth=80",
 })
 
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = {".md"},
+    callback = function()
+        vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "filetype", "markdown")
+    end
+})
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = {".tex"},
+    callback = function()
+        vim.cmd("syntax on")
+        vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "filetype", "latex")
+    end
+})
