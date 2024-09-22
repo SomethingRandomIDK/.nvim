@@ -10,13 +10,17 @@ vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 local viewFile = function()
     -- Uses inlyne as a markdown viewer
     if vim.bo.filetype == 'markdown' then
-        vim.cmd("!inlyne %")
+        local localFilePath = vim.fn.expand('%:.')
+        local mdCommand = '!inlyne \'' .. localFilePath .. '\''
+        vim.cmd(mdCommand)
 
     -- Compiles the tex file and then opens it in firefox
     elseif vim.bo.filetype == 'tex' then
-        vim.cmd('!pdflatex %:.')
+        local localFilePath = vim.fn.expand('%:.')
+        local pdfLatexCommand = '!pdflatex \'' .. localFilePath .. '\''
+        vim.cmd(pdfLatexCommand)
         local fileName = vim.fn.expand('%:t')
-        local openCommand = "!firefox " .. string.sub(fileName, 1, -4) .. "pdf"
+        local openCommand = "!firefox \'" .. string.sub(fileName, 1, -4) .. "pdf\'"
         vim.cmd(openCommand)
     else
         print('Not Valid File to View')
