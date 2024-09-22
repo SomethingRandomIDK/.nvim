@@ -39,7 +39,16 @@ return {
 
         require('mason').setup({})
         require('mason-lspconfig').setup({
-          ensure_installed = {'lua_ls', 'pylyzer', 'clangd', 'rust_analyzer', 'jdtls', 'texlab'},
+          ensure_installed = {
+                'lua_ls',
+                'pyright',
+                'clangd',
+                'rust_analyzer',
+                'jdtls',
+                'texlab',
+                'markdown_oxide',
+                'ltex'
+            },
           handlers = {
             default_setup,
           },
