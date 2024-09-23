@@ -29,6 +29,30 @@ end
 
 vim.keymap.set("n", "<leader>v", viewFile)
 
+-- Surround Keybindings
+vim.keymap.set("v", "<Leader>s\"", "c\"<C-R>\"\"<esc>")
+vim.keymap.set("v", "<Leader>s'", "c'<C-R>\"'<esc>")
+vim.keymap.set("v", "<Leader>s*", "c*<C-R>\"*<esc>")
+vim.keymap.set("v", "<Leader>s$", "c$<C-R>\"$<esc>")
+vim.keymap.set("v", "<Leader>sb", "c(<C-R>\")<esc>")
+vim.keymap.set("v", "<Leader>s(", "c(<C-R>\")<esc>")
+vim.keymap.set("v", "<Leader>sB", "c{<C-R>\"}<esc>")
+vim.keymap.set("v", "<Leader>s{", "c{<C-R>\"}<esc>")
+vim.keymap.set("v", "<Leader>s[", "c[<C-R>\"]<esc>")
+vim.keymap.set("v", "<Leader>s<", "c<<C-R>\"><esc>")
+
+-- Delete Surround Keybindings
+vim.keymap.set('n',  "<Leader>ds\"", "F\"xf\"x")
+vim.keymap.set('n',  "<Leader>ds'", "F'xf'x")
+vim.keymap.set('n',  "<Leader>ds*", "F*xf*x")
+vim.keymap.set('n',  "<Leader>ds$", "F$xf$x")
+vim.keymap.set('n',  "<Leader>dsb", "F(xf)x")
+vim.keymap.set('n',  "<Leader>ds(", "F(xf)x")
+vim.keymap.set('n',  "<Leader>dsB", "F{xf}x")
+vim.keymap.set('n',  "<Leader>ds{", "F{xf}x")
+vim.keymap.set('n',  "<Leader>ds[", "F[xf]x")
+vim.keymap.set('n',  "<Leader>ds<", "F<xf>x")
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
