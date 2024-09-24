@@ -54,6 +54,7 @@ vim.keymap.set('n',  "<Leader>ds[", "F[xf]x")
 vim.keymap.set('n',  "<Leader>ds<", "F<xf>x")
 
 vim.opt.guicursor = ""
+vim.opt.mouse = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
