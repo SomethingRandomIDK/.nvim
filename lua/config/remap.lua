@@ -14,14 +14,17 @@ local viewFile = function()
         local mdCommand = '!inlyne \'' .. localFilePath .. '\''
         vim.cmd(mdCommand)
 
+    -- New compilations with pdflatex are more complicated depending on the 
+    -- project, so now I need to compile manually
+
     -- Compiles the tex file and then opens it in firefox
-    elseif vim.bo.filetype == 'tex' then
-        local localFilePath = vim.fn.expand('%:.')
-        local pdfLatexCommand = '!pdflatex \'' .. localFilePath .. '\''
-        vim.cmd(pdfLatexCommand)
-        local fileName = vim.fn.expand('%:t')
-        local openCommand = "!firefox \'" .. string.sub(fileName, 1, -4) .. "pdf\'"
-        vim.cmd(openCommand)
+    -- elseif vim.bo.filetype == 'tex' then
+    --     local localFilePath = vim.fn.expand('%:.')
+    --     local pdfLatexCommand = '!pdflatex \'' .. localFilePath .. '\''
+    --     vim.cmd(pdfLatexCommand)
+    --     local fileName = vim.fn.expand('%:t')
+    --     local openCommand = "!firefox \'" .. string.sub(fileName, 1, -4) .. "pdf\'"
+    --     vim.cmd(openCommand)
     else
         print('Not Valid File to View')
     end
