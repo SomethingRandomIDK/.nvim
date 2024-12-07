@@ -11,7 +11,7 @@ return {
         "folke/tokyonight.nvim",
         lazy=false,
         config=function()
-            ColorPencils("tokyonight-moon")
+            -- ColorPencils("tokyonight-moon")
         end,
     },
     {
@@ -54,6 +54,41 @@ return {
         lazy=false,
         config=function()
             -- ColorPencils("rose-pine-moon")
+        end,
+    },
+    {
+        "EdenEast/nightfox.nvim",
+        lazy=false,
+        config=function()
+            -- ColorPencils("carbonfox")
+        end,
+    },
+    {
+        "eldritch-theme/eldritch.nvim",
+        lazy=false,
+        config=function()
+            ColorPencils("eldritch")
+        end,
+    },
+    {
+        "rebelot/kanagawa.nvim",
+        lazy=false,
+        config=function()
+            -- ColorPencils("kanagawa-wave")
+        end,
+    },
+    {
+        "xero/miasma.nvim",
+        lazy=false,
+        config=function()
+            -- ColorPencils("miasma")
+        end,
+    },
+    {
+        "dgox16/oldworld.nvim",
+        lazy=false,
+        config=function()
+            -- ColorPencils("oldworld")
         end,
     },
 }
