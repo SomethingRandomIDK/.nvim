@@ -18,7 +18,7 @@ return {
         "catppuccin/nvim", name = "catppuccin",
         lazy=false,
         config=function()
-            -- ColorPencils("catppuccin-mocha")
+            ColorPencils("catppuccin-mocha")
         end,
     },
     {
@@ -67,7 +67,7 @@ return {
         "eldritch-theme/eldritch.nvim",
         lazy=false,
         config=function()
-            ColorPencils("eldritch")
+            -- ColorPencils("eldritch")
         end,
     },
     {
