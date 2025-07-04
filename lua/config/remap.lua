@@ -80,10 +80,12 @@ vim.opt.scrolloff = 8
 
 vim.opt.colorcolumn = "80"
 
-vim.api.nvim_set_option("clipboard", "unnamed")
+-- vim.api.nvim_set_option("clipboard", "")
 
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
+
+vim.opt.undofile = true
 
 vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
     pattern = {"*.md", "*.txt", "*.tex"},
@@ -104,3 +106,4 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
 --         vim.api.nvim_buf_set_option(vim.api.nvim_get_current_buf(), "filetype", "latex")
 --     end
 -- })
+
