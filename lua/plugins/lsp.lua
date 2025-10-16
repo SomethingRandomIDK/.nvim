@@ -58,8 +58,6 @@ return {
           },
         })
 
-        require('lspconfig').lua_ls.setup{}
-
         local cmp = require('cmp')
 
         cmp.setup({
