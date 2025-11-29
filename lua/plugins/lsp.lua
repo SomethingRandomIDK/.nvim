@@ -45,6 +45,7 @@ return {
                 -- 'pylyzer',
                 -- 'pylsp',
                 -- 'jedi_language_server',
+                'cssls',
                 'clangd',
                 'rust_analyzer',
                 'jdtls',
